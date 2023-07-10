@@ -1,0 +1,6 @@
+* {
+	margin: 0;
+	padding: 0;
+	/* Keep the width of the box without adding extra space */
+	box-sizing: border-box;
+}
