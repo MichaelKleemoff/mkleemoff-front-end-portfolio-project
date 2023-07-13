@@ -1,0 +1,12 @@
+body {
+	color: azure;
+	background-image: url('../resources/images/jason-leung-SAYzxuS1O3M-unsplash.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+}
+
+footer {
+	background-color: olivedrab;
+}
