@@ -4,7 +4,6 @@ const h2 = document.createElement('h2');
 main.append(h2);
 
 const form = document.querySelector('form');
-console.log(form);
 
 const BASE_URL = `https://currency-conversion-and-exchange-rates.p.rapidapi.com/`;
 const options = {
