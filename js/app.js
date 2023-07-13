@@ -1,7 +1,10 @@
 // Accessing necessary nodes
 const main = document.querySelector('main');
 const h2 = document.createElement('h2');
-main.append(h2);
+const aside = document.querySelector('aside');
+h2.style.color = '#fff';
+h2.style.backgroundColor = 'gold';
+aside.append(h2);
 
 const form = document.querySelector('form');
 
