@@ -46,3 +46,11 @@ const btnReset = document.querySelector('#btn-reset');
 btnReset.addEventListener('click', () => {
 	document.location.reload();
 });
+
+// Footer
+// Get the current year and `append` it to the copyright line in the `footer`.
+const currentYear = document.querySelector('#current-year');
+const date = new Date();
+const year = date.getFullYear();
+
+currentYear.append(year);
