@@ -4,7 +4,6 @@ const h2 = document.createElement('h2');
 const aside = document.querySelector('aside');
 h2.style.color = '#fff';
 h2.style.backgroundColor = 'gold';
-aside.append(h2);
 
 const form = document.querySelector('form');
 
@@ -33,10 +32,17 @@ form.addEventListener('submit', (event) => {
 		.then((JSONresponse) => {
 			console.log(JSONresponse);
 			JSONresponse;
+			aside.append(h2);
 			h2.textContent = `The conversion rate is: ${
 				JSONresponse.query.to
 			} ${JSONresponse.result.toFixed(2)}`;
 		});
 
 	form.reset();
+});
+
+const btnReset = document.querySelector('#btn-reset');
+
+btnReset.addEventListener('click', () => {
+	document.location.reload();
 });
