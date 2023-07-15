@@ -4,15 +4,62 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Currency Symbols | Global Currencies</title>
+		<link rel="stylesheet" href="./css/reset.css" />
+		<link rel="stylesheet" href="./css/symbols.css" />
+		<script src="./js/symbols.js" defer></script>
+		<script src="./src/fetchAPI.js" defer></script>
 	</head>
 	<body>
 		<header>
 			<h1>Currency Symbols</h1>
-			<a href="./index.html">Home</a>
-			<a href="./about.html">About</a>
-			<a href="./convert.html">Currency Conversion</a>
+			<nav>
+				<a href="./index.html">Home</a>
+				<a href="./about.html">About</a>
+				<a href="./convert.html">Currency Conversion</a>
+			</nav>
 		</header>
-		<main></main>
-		<footer></footer>
+
+		<main>
+			<form>
+				<h2>Currency Symbol</h2>
+
+				<label for="desired-symbol">
+					Currency <br />
+					<input type="text" name="currency" id="desired-symbol" required />
+				</label>
+				<br /><br />
+
+				<section id="symbol-radio-btns">
+					<label>
+						Symbol
+						<input type="radio" name="currency" id="symbol" value="symbol" />
+					</label>
+
+					<label>
+						Name
+						<input type="radio" name="currency" id="name" value="name" />
+					</label>
+				</section>
+				<br />
+
+				<div id="modal-errors" class="modal hidden"></div>
+
+				<section id="form-btns">
+					<input id="btn-reset" class="btn-form" type="reset" value="Reset" />
+					<input
+						id="btn-submit"
+						class="btn-form"
+						type="submit"
+						value="Submit"
+						required
+					/>
+				</section>
+			</form>
+			<aside></aside>
+		</main>
+
+		<footer>
+			<p>Copyright &copy; <span id="current-year"></span> Global Currencies</p>
+		</footer>
 	</body>
 </html>
