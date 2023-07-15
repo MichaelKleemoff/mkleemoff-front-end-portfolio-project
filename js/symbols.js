@@ -21,40 +21,33 @@ form.addEventListener('submit', (event) => {
 	event.preventDefault();
 
 	const desiredSymbol = document.querySelector('#desired-symbol').value;
-	const currSymbol = document.querySelector('#symbol');
-	console.log(currSymbol.checked);
-	const currName = document.querySelector('#name');
-	console.log(currName.checked);
 
 	fetch(`${BASE_URL}symbols`, options)
 		.then((data) => data.json())
 		.then((JSONresponse) => {
 			console.log(JSONresponse);
 			JSONresponse;
-			const allSymbolKeys = Object.keys(JSONresponse.symbols);
+
 			const allSymbolValues = Object.values(JSONresponse.symbols);
 
-			const foundSymbolKey = allSymbolKeys.find(
-				(item) => item === desiredSymbol.toUpperCase()
-			);
-			console.log(foundSymbolKey);
 			const foundSymbolValue = allSymbolValues.find(
-				(item) => item.toLowerCase() === desiredSymbol.toLowerCase()
+				(name) => name === desiredSymbol
 			);
 
+			let currency;
+
+			if (foundSymbolValue === undefined) {
+				currency = `The desired symbol wasn't found. Please try another one.`;
+			}
+
+			if (foundSymbolValue) {
+				currencySymbol = `The symbol of the currency is: ${Object.keys(
+					JSONresponse.symbols
+				).find((key) => JSONresponse.symbols[key] === foundSymbolValue)}`;
+			}
+
+			h2.textContent = currencySymbol;
 			aside.append(h2);
-
-			if (foundSymbolKey === undefined || foundSymbolValue === undefined) {
-				h2.textContent = `The desired symbol wasn't found. Please try another one.`;
-			}
-
-			if (currSymbol.checked === true) {
-				h2.textContent = `The symbol of the currency is: ${foundSymbolKey}`;
-			}
-
-			// if (currName.checked && desiredSymbol.toUpperCase() === foundSymbolKey) {
-			// 	h2.textContent = `The name of the symbol is: ${JSONresponse.symbols[foundSymbolKey]}`;
-			// }
 		});
 
 	form.reset();
